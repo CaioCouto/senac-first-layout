@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="normalize.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    /> -->
+
+    <title>Nosso Primeiro Layout</title>
+  </head>
+
+  <body>
+    <header>
+      <h1 class="header__logo">Layout</h1>
+
+      <ul class="header__list">
+        <li class="header__list-item">
+          <a class="header__list-link" href="#" target="_blank">Link 1</a>
+        </li>
+
+        <li class="header__list-item">
+          <a class="header__list-link" href="#" target="_blank">Link 2</a>
+        </li>
+
+        <li class="header__list-item">
+          <a class="header__list-link" href="#" target="_blank">Link 3</a>
+        </li>
+
+        <li class="header__list-item">
+          <a class="header__list-link" href="#" target="_blank">Link 4</a>
+        </li>
+
+        <li class="header__list-item">
+          <a class="header__list-link" href="#" target="_blank">Link 5</a>
+        </li>
+      </ul>
+    </header>
+
+    <main>
+      <h1>
+        Fomulário de cadastro genérico
+      </h1>
+
+      <form id="form-generico" name="form-generico" action="#">
+        <section class="form__section">
+          <label for="nome-input" id="name-label">
+            Nome
+          </label>
+          <input type="text" name="nome-input" id="nome-input" required />
+        </section>
+
+        <section class="form__section">
+          <label for="contato-input" id="contato-label">
+            Contato
+          </label>
+          <input
+            type="tel"
+            name="contato-input"
+            id="contato-input"
+            maxlength="15"
+            required
+          />
+        </section>
+
+        <section class="form__section">
+          <label for="matricula-input" id="matricula-label">
+            Matrícula
+          </label>
+          <input
+            type="text"
+            name="matricula-input"
+            id="matricula-input"
+            required
+          />
+        </section>
+
+        <section class="form__section">
+          <label for="finalidade-input" id="finalidade-label">
+            Finalidade
+          </label>
+          <input type="text" name="finalidade-input" id="finalidade-input" />
+        </section>
+
+        <button class="form__button-submit" type="submit">Enviar</button>
+      </form>
+    </main>
+
+    <footer>
+      <p>
+        Desenvolvido com
+        <span class="footer__heart">&#9829;</span>
+        por nós.
+      </p>
+    </footer>
+
+    <script src="validateFields.js"></script>
+    <script>
+      const form = document.getElementById("form-generico");
+      form.addEventListener("submit", checkForm);
+
+      const contatoInput = document.querySelector("#contato-input");
+      contatoInput.addEventListener("input", (e) => {
+        let inputValue = e.target.value;
+        inputValue = inputValue.replace(/\D/g, "");
+
+        e.target.value = inputValue
+          .replace(/(\d{2})(\d)/, "($1) $2")
+          .replace(/(\d{4})(\d)/, "$1-$2")
+          .replace(/(\d{4})-(\d)(\d{4})/, "$1$2-$3")
+          .replace(/(-\d{4})\d+?$/, "$1");
+      });
+    </script>
+  </body>
+</html>

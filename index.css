@@ -1,0 +1,141 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+:root {
+  --text-align-center: center;
+  --bg-orange: rgba(245, 161, 62, 0.83);
+  --basic-border: 1px solid rgb(0, 0, 0);
+  --border-radius-8px: 8px;
+}
+
+/* Base styles */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: rgb(241, 241, 241);
+}
+
+header,
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: var(--text-align-center);
+  background: var(--bg-orange);
+}
+
+/* Header styles */
+.header__list {
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header__list-item {
+  width: 100%;
+  border-right: var(--basic-border);
+  border-left: var(--basic-border);
+}
+
+.header__list-item:first-child {
+  border-left: 0;
+}
+
+.header__list-item:last-child {
+  border-right: 0;
+}
+
+.header__list-link {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.header__list-link:hover,
+.header__list-link:focus {
+  text-decoration: underline;
+  color: rgb(0, 0, 255);
+}
+
+/* Main styles */
+main {
+  width: 50%; /* Comprimento */
+  margin: 0 auto;
+}
+
+main h1 {
+  text-align: var(--text-align-center);
+}
+
+main p {
+  text-align: justify;
+}
+
+form {
+  border: var(--basic-border);
+  border-radius: var(--border-radius-8px);
+  padding: 2em;
+  box-shadow: 0 0 0.6em rgb(0, 0, 0);
+  background: rgb(255, 255, 255);
+}
+
+.form__section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5em;
+}
+
+.form__section label {
+  margin-bottom: 0.5em;
+}
+
+.form__nome-label--invalid:after,
+.form__contato-label--invalid:after,
+.form__matricula-label--invalid:after,
+.form__finalidade-label--invalid:after {
+  font-family: FontAwesome;
+  content: "\0020\f057\0020 Oops, valor inválido!";
+  color: red;
+}
+
+.form__section input {
+  border-radius: var(--border-radius-8px);
+  border: var(--basic-border);
+}
+
+.form__button-submit {
+  display: inline-block;
+  width: 35%;
+}
+
+/* Footer styles */
+footer {
+  margin-top: auto;
+}
+
+.footer__heart {
+  color: rgb(255, 0, 0);
+}
+
+/* Media queries */
+@media (max-width: 850px) {
+  .header__nav__list {
+    width: 100%;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  form {
+    margin: 0.5em;
+  }
+
+  .form__button-submit {
+    width: 100%;
+  }
+}
